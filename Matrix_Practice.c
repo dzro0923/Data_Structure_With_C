@@ -2,21 +2,21 @@
 #define MAX_TERMS 100
 
 typedef struct {
-	int row;   // Çà¹øÈ£
-	int col;   // ¿­¹øÈ£
-	int value; // ¿ø¼Ò
+	int row;   // í–‰ë²ˆí˜¸
+	int col;   // ì—´ë²ˆí˜¸
+	int value; // ì›ì†Œ
 }element;
 
 typedef struct {
 	element data[MAX_TERMS];
-	int rows;   // Çà °³¼ö
-	int cols;   // ¿­ °³¼ö
-	int terms;  // ÃÑ ¿ø¼ÒÀÇ °³¼ö
+	int rows;   // í–‰ ê°œìˆ˜
+	int cols;   // ì—´ ê°œìˆ˜
+	int terms;  // ì´ ì›ì†Œì˜ ê°œìˆ˜
 }SparseMatrix;
 
 
 void toSparseMatrix(int src[][5], SparseMatrix* dst, int row, int col) {
-	// Èñ¼Ò Çà·ÄÀÇ Å©±â¸¦ ¼³Á¤ÇÏ°í, ¿ø¼Ò °³¼ö¸¦ 0À¸·Î ÃÊ±âÈ­
+	// í¬ì†Œ í–‰ë ¬ì˜ í¬ê¸°ë¥¼ ì„¤ì •í•˜ê³ , ì›ì†Œ ê°œìˆ˜ë¥¼ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 	dst->rows = row;
 	dst->cols = col;
 	dst->terms = 0;
@@ -26,13 +26,13 @@ void toSparseMatrix(int src[][5], SparseMatrix* dst, int row, int col) {
 				dst->data[dst->terms].row = i;
 				dst->data[dst->terms].col = j;
 				dst->data[dst->terms].value = src[i][j];
-				dst->terms++; // Èñ¼ÒÇà·Ä ³» ¿ø¼Ò °³¼ö Áõ°¡
+				dst->terms++; // í¬ì†Œí–‰ë ¬ ë‚´ ì›ì†Œ ê°œìˆ˜ ì¦ê°€
 			}
 }
 
 void printMatrix(int a[][5], int row, int col) {
-	// Çà·Ä Ãâ·ÂÇÏ´Â ÇÔ¼ö ÀÛ¼º
-	// loop 2¹ø »ç¿ë
+	// í–‰ë ¬ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜ ì‘ì„±
+	// loop 2ë²ˆ ì‚¬ìš©
 	for (int r = 0; r < row; r++) {
 		for (int c = 0; c < col; c++) {
 			printf(" %d ", a[r][c]);
