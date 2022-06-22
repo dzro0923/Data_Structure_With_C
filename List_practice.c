@@ -2,11 +2,11 @@
 int list[100];
 int length = 0;
 
-// ¸®½ºÆ®ÀÇ pos À§Ä¡¿¡ itemÀ» »ğÀÔÇÏ´Â ÇÔ¼ö
+// ë¦¬ìŠ¤íŠ¸ì˜ pos ìœ„ì¹˜ì— itemì„ ì‚½ì…í•˜ëŠ” í•¨ìˆ˜
 void insert(int pos, int item) {
 	int i;
 	if (length == 100 || pos < 0 || pos > length) {
-		printf("»ğÀÔ ¿¡·¯\n");
+		printf("ì‚½ì… ì—ëŸ¬\n");
 		return;
 	}
 	for (i = length; i > pos; i--)
@@ -16,7 +16,7 @@ void insert(int pos, int item) {
 	length++;
 }
 
-//¸®½ºÆ®¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼ö
+//ë¦¬ìŠ¤íŠ¸ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 void print_list() {
 	int j;
 	printf("(");
@@ -27,15 +27,15 @@ void print_list() {
 	}
 	printf(")\n");
 }
-// pos À§Ä¡ÀÇ ¿ø¼Ò¸¦ »èÁ¦ÇÏ´Â ÇÔ¼ö 
+// pos ìœ„ì¹˜ì˜ ì›ì†Œë¥¼ ì‚­ì œí•˜ëŠ” í•¨ìˆ˜ 
 void delete(int pos) {
 	int i;
 	if (length == 0 || pos < 0 || pos >= length) {
-		printf("»èÁ¦ ¿¡·¯\n");
+		printf("ì‚­ì œ ì—ëŸ¬\n");
 		return;
 	}
-	// pos ´ÙÀ½ºÎÅÍ ¸¶Áö¸·±îÁö ¿ø¼Ò¸¦ 1Ä­¾¿ ¿ŞÂÊÀ¸·Î ÀÌµ¿
-	// length¸¦ 1 °¨¼Ò½ÃÅ´
+	// pos ë‹¤ìŒë¶€í„° ë§ˆì§€ë§‰ê¹Œì§€ ì›ì†Œë¥¼ 1ì¹¸ì”© ì™¼ìª½ìœ¼ë¡œ ì´ë™
+	// lengthë¥¼ 1 ê°ì†Œì‹œí‚´
 	for (i = pos; i < length - 1; i++)
 		list[i] = list[i + 1];
 	length--;
@@ -43,18 +43,18 @@ void delete(int pos) {
 
 int main() {
 	insert(0, 10);
-	// 20, 30, 40À»
-	// Â÷·Ê´ë·Î »ğÀÔÇÏ¿©
-	// (insert() È£ÃâÇÏ¿©)
-	// ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇØ¾ß ÇÔ
+	// 20, 30, 40ì„
+	// ì°¨ë¡€ëŒ€ë¡œ ì‚½ì…í•˜ì—¬
+	// (insert() í˜¸ì¶œí•˜ì—¬)
+	// ì•„ë˜ì™€ ê°™ì´ ì¶œë ¥í•´ì•¼ í•¨
 	insert(0, 20);
 	insert(1, 30);
 	insert(2, 40);
 	insert(10, 50);
 	print_list();
-	// 10, 20À» Â÷·Ê´ë·Î »èÁ¦ÇÏ¿©
-	// (delete() È£ÃâÇÏ¿©)
-	// ¾Æ·¡¿Í °°ÀÌ Ãâ·ÂÇØ¾ß ÇÔ
+	// 10, 20ì„ ì°¨ë¡€ëŒ€ë¡œ ì‚­ì œí•˜ì—¬
+	// (delete() í˜¸ì¶œí•˜ì—¬)
+	// ì•„ë˜ì™€ ê°™ì´ ì¶œë ¥í•´ì•¼ í•¨
 	delete(3);
 	delete(0);
 	delete(length);
